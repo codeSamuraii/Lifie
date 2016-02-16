@@ -47,15 +47,31 @@ def fen_simulation(ile):
 	label.image = photo # keep a reference!
 	Canevas2.configure(width=photo.width(), height=photo.height())
 	Canevas2.create_image(0, 0, anchor=NW, image=photo)
-	Canevas2.pack()
+	Canevas2.grid(row=0, column=0, rowspan=15, columnspan=32)
 
 	# Création d'un bouton de lancement
-	Button_Demarrer = Button(Fenetre_Simulation, text="Simuler un état", command=simulation)
-	Button_Demarrer.pack()
+	Bouton_PlusUn = Button(Fenetre_Simulation, text="+1")
+	Bouton_Play = Button(Fenetre_Simulation, text="Lancer")
+	Bouton_Stop = Button(Fenetre_Simulation, text="Stop")
+	Bouton_PlusUn.grid(row=15, column=0)
+	Bouton_Play.grid(row=15, column=1)
+	Bouton_Stop.grid(row=15, column=2)
+
+	# Création de la zone de vitesse et des boutons (inactifs pour le moment)
+	ZoneVitesse = LabelFrame(Fenetre_Simulation, text="Vitesse de rendu")
+	Vitesse = IntVar()
+	Vitesse1 = Radiobutton(ZoneVitesse, text="1 FPS", variable=Vitesse, value=1)
+	Vitesse2 = Radiobutton(ZoneVitesse, text="3 FPS", variable=Vitesse, value=2)
+	Vitesse3 = Radiobutton(ZoneVitesse, text="Maximum", variable=Vitesse, value=3)
+	Vitesse1.grid(row=0, column=0)
+	Vitesse2.grid(row=0, column=1)
+	Vitesse2.select()
+	Vitesse3.grid(row=0, column=2)
+	ZoneVitesse.grid(row=15, column=22, columnspan=10)
 
 	# Création d'une console où sont affichées les actions
 	Console_Log = ScrolledText(Fenetre_Simulation, wrap=tkinter.WORD, width=int(photo.width() / 7.2), height=5)
-	Console_Log.pack()
+	Console_Log.grid(row=16, columnspan=32)
 
 	Fenetre_Simulation.mainloop()
 
