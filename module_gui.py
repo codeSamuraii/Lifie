@@ -4,6 +4,7 @@
 Ce module gère l'interface graphique utilisateur.
 
 """
+import time
 import tkinter
 from tkinter.filedialog import *
 from tkinter.scrolledtext import *
@@ -17,6 +18,7 @@ def fen_simulation(ile):
 
 	ile = ile
 	image = ile_vers_image(ile)
+	Executer_Simulation = False
 
 	# Actualise l'affichage
 	def Actualiser_Canevas():
@@ -28,12 +30,28 @@ def fen_simulation(ile):
 		Canevas2.configure(width=photo.width(), height=photo.height())
 		Canevas2.create_image(0, 0, anchor=NW, image=photo)
 
-	# Appelle la fonction de simulation du module principal et actualise l'affichage
-	def simulation():
-		global ile
+	def Arreter_Simulation():
+		global Executer_Simulation
+		Executer_Simulation = False
 
-		ile = Avancer_Simulation(ile)
-		Actualiser_Canevas()
+	def Commencer_Simulation():
+		global Executer_Simulation
+		Executer_Simulation = True
+		Simulation()
+	# Appelle la fonction de simulation du module principal et actualise l'affichage
+	def Simulation():
+		global Executer_Simulation
+		if Executer_Simulation == True:
+			# On enregistre le moment exact où le programme a démarré
+			moment_depart = time.time()
+
+			global ile
+			ile = Avancer_Simulation(ile)
+			Actualiser_Canevas()
+
+			# On attend de manière à correspondre à Vitesse (ex. 1 image par seconde)
+			duree_exec = time.time() - moment_depart
+			Console_Log.after(int((Vitesse.get() - duree_exec)*1000), Simulation)
 
 	# Création d'une nouvelle fenêtre
 	Fenetre_Simulation = tkinter.Toplevel()
@@ -50,22 +68,22 @@ def fen_simulation(ile):
 	Canevas2.grid(row=0, column=0, rowspan=15, columnspan=32)
 
 	# Création d'un bouton de lancement
-	Bouton_PlusUn = Button(Fenetre_Simulation, text="+1")
-	Bouton_Play = Button(Fenetre_Simulation, text="Lancer")
-	Bouton_Stop = Button(Fenetre_Simulation, text="Stop")
+	Bouton_PlusUn = Button(Fenetre_Simulation, text="+1", state=DISABLED)
+	Bouton_Play = Button(Fenetre_Simulation, text="Lancer", command=Commencer_Simulation)
+	Bouton_Stop = Button(Fenetre_Simulation, text="Stop", command=Arreter_Simulation)
 	Bouton_PlusUn.grid(row=15, column=0)
 	Bouton_Play.grid(row=15, column=1)
 	Bouton_Stop.grid(row=15, column=2)
 
-	# Création de la zone de vitesse et des boutons (inactifs pour le moment)
+	# Création de la zone de vitesse et des boutons
 	ZoneVitesse = LabelFrame(Fenetre_Simulation, text="Vitesse de rendu")
 	Vitesse = IntVar()
 	Vitesse1 = Radiobutton(ZoneVitesse, text="1 FPS", variable=Vitesse, value=1)
-	Vitesse2 = Radiobutton(ZoneVitesse, text="3 FPS", variable=Vitesse, value=2)
-	Vitesse3 = Radiobutton(ZoneVitesse, text="Maximum", variable=Vitesse, value=3)
+	Vitesse2 = Radiobutton(ZoneVitesse, text="3 FPS", variable=Vitesse, value=1/3, state=DISABLED)
+	Vitesse3 = Radiobutton(ZoneVitesse, text="Maximum", variable=Vitesse, value=(-1), state=DISABLED)
 	Vitesse1.grid(row=0, column=0)
 	Vitesse2.grid(row=0, column=1)
-	Vitesse2.select()
+	Vitesse1.select()
 	Vitesse3.grid(row=0, column=2)
 	ZoneVitesse.grid(row=15, column=22, columnspan=10)
 
