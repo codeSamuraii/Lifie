@@ -113,7 +113,7 @@ def sauvegarder_ile(ile, image=None, chemin=None):
     Sauvegarde l'array de la carte au format .npy (et optionnellement l'image) pour être importé plus tard.
     """
     if chemin == None:
-        nom_fichier = "monde_" + time.asctime(time.localtime()).replace(" ", "")
+        nom_fichier = "carte_" + time.asctime(time.localtime()).replace(" ", "")
     else:
         nom_fichier = chemin
 
