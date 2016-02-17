@@ -127,7 +127,7 @@ def sauvegarder_ile(ile, image=None, chemin=None):
     print("[*] Carte sauvegardée sous : '" + nom_fichier + ".npy'")
 
 
-def importer_ile():
+def importer_ile(chemin_fichier):
     """
     Importe une carte au format .npy pour utilisation.
     Retourne un array d'île.

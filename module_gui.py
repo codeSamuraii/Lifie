@@ -4,7 +4,6 @@
 Ce module gère l'interface graphique utilisateur.
 
 """
-import time
 import tkinter
 from tkinter.filedialog import *
 from tkinter.scrolledtext import *
@@ -25,8 +24,9 @@ def fen_simulation(ile):
 		global ile
 		photo = ImageTk.PhotoImage(ile_vers_image(ile))
 		label = Label(image=photo)
-		label.image = photo # keep a reference!
+		label.image = photo
 
+		Canevas2.delete(ALL)
 		Canevas2.configure(width=photo.width(), height=photo.height())
 		Canevas2.create_image(0, 0, anchor=NW, image=photo)
 
@@ -79,13 +79,11 @@ def fen_simulation(ile):
 	ZoneVitesse = LabelFrame(Fenetre_Simulation, text="Vitesse de rendu")
 	Vitesse = IntVar()
 	Vitesse1 = Radiobutton(ZoneVitesse, text="1 FPS", variable=Vitesse, value=1)
-	Vitesse2 = Radiobutton(ZoneVitesse, text="3 FPS", variable=Vitesse, value=1/3, state=DISABLED)
-	Vitesse3 = Radiobutton(ZoneVitesse, text="Maximum", variable=Vitesse, value=(-1), state=DISABLED)
+	Vitesse2 = Radiobutton(ZoneVitesse, text="Maximum", variable=Vitesse, value=0, state=DISABLED)
 	Vitesse1.grid(row=0, column=0)
 	Vitesse2.grid(row=0, column=1)
 	Vitesse1.select()
-	Vitesse3.grid(row=0, column=2)
-	ZoneVitesse.grid(row=15, column=22, columnspan=10)
+	ZoneVitesse.grid(row=15, column=25, columnspan=7, padx=5)
 
 	# Création d'une console où sont affichées les actions
 	Console_Log = ScrolledText(Fenetre_Simulation, wrap=tkinter.WORD, width=int(photo.width() / 7.2), height=5)
