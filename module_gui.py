@@ -159,7 +159,7 @@ def gestion_source():
 	Bouton4 = Button(Fenetre_Gestion_Source, text="Sauvegarder la carte", command=Sauvegarder_Carte, state=DISABLED)
 	Bouton3 = Button(Fenetre_Gestion_Source, text="Utiliser cette carte", command=Utiliser_Carte, font=("DejaVu Sans", 9, "bold"), state=DISABLED)
 	Canevas = Canvas(Fenetre_Gestion_Source, width=640, height=640, bg='#E3E3E3')
-	Canevas.create_text(310, 300, text="~ Carte ~", font=("DejaVu Sans Mono", 32), fill="grey")
+	Canevas.create_text(310, 300, text="~Carte ~", font=("DejaVu Sans Mono", 32), fill="grey")
 
 	Bouton1.grid(row=1, column=0, padx=5, pady=5)
 	Bouton2.grid(row=1, column=1, padx=5, pady=5)

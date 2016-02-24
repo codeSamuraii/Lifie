@@ -10,9 +10,9 @@ from module_cartographie import *
 
 
 # FONCTION CONTENANT LES RÈGLES D'ÉVOLUTION :
-#def Avancer_Simulation(ile):
-#	ile = numpy.true_divide(ile, 1.2)
-#	return ile
+def Avancer_Simulation(ile):
+	ile = numpy.true_divide(ile, 1.2)
+	return ile
 
 
 """

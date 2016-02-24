@@ -9,12 +9,17 @@ Chaque type de terrain possède des caractéristiques différentes quant à l’
 
 La simulation s’arrête lorsqu’une colonie a atteint un nombre maximal d’individus ou n’en a plus.
 
-## Dépendances
-- NumPy
-- SciPy
-- Pillow
-- Matplotlib
-- TKinter
-
 ## Lancement
-Pour lancer le programme, exécuter le module GUI.
+### Installation des dépendances (GNU/Linux)
+- SciPy:
+`sudo apt-get install python3-dev python3-numpy python3-scipy python3-matplotlib ipython3 ipython3-notebook python3-pandas python3-sympy python3-nose`
+- Pillow
+`sudo apt-get install python3-pil.imagetk`
+`sudo pip3 install pillow`
+- Tkinter
+`sudo apt-get install python3-tk`
+- Matplotlib
+`sudo pip3 install matplotlib`
+
+### Lancement du programme
+`python3 module_gui.py`
