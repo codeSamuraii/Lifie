@@ -11,7 +11,7 @@ Les individus agissent selon des règles définies mais évoluent dans un enviro
 
 Comme dit précédemment, chaque carte sera générée aléatoirement en répondant à quelques paramètres de base tels que sa taille, sa diversité et sa densité. Le résultat est un monde de type insulaire sur lequel sont disposés plusieurs terrains ayant des effets différents pour les individus.
 
-<center>![Exemple de carte générée](./Images/antialiased.png)</center>
+<center>![Exemple de carte générée](antialiased.png)</center>
 
 Dans sa version actuelle, il en existe six dont quatre ont des caractéristiques spéciales :
 
@@ -55,7 +55,7 @@ Pour combiner esthétisme et performance, deux matrices sont en fait générées
 - Une première faisant le double de la taille spécifiée par l'utilisateur puis redimensionnée de moitié de manière à obtenir une image sans aliasing (« crénelage ») de bonne qualité.
 - Une seconde, copie de la première mais avec une résolution dix fois plus basse (par défaut) sur laquelle se déroulera la simulation :
 
-<center>![Carte sur laquelle se déroule la simulation](./Images/simulation.png)</center>
+<center>![Carte sur laquelle se déroule la simulation](simulation.png)</center>
 
 Celle-ci n'est jamais affichée. Elle est totalement transparente à l'exception des individus. Le résultat final est la superposition des deux images.
 
