@@ -553,7 +553,7 @@ class Carte():
                 individu.raison = " tué par " + str(individu.ennemi.rang)
                 individu.ennemi.ennemi = None
 
-        while Carte.liste_individus:
+        while Carte.liste_individus and len(Carte.liste_tribus) > 1:
             
             for individu in Carte.liste_individus:
 
@@ -615,7 +615,7 @@ class Carte():
                     
             return True 
 
-        vprint(" *  Tout le monde est mort.")
+        vprint(" *  Fin de la simulation.")
         return False
 
 
