@@ -16,12 +16,12 @@ Comme dit précédemment, chaque carte sera générée aléatoirement en répond
 Dans sa version actuelle, il en existe six dont quatre ont des caractéristiques spéciales :
 
 - L'**eau** qui délimite l'île et définie parfois des zones inaccessibles aux agents, à la manière d'étangs.
-- La **forêt** et la **jungle** qui permettent d'obtenir de la nourriture, ce qui jouera sur la fertilité de la tribu.
-- La **neige**, qui ralentit de moitié le déplacement des individus et leur fait perde de l'expérience.
+- La **forêt** et la **jungle** qui permettent d'obtenir de la nourriture, ce qui jouera sur la fertilité de la tribu. La **jungle** a une plus grande probabilité d'obtenir de la nourriture mais aussi de faire perdre de l'expérience.
+- La **neige** leur fait perde de l'expérience.
 - Le **sable** et la **plaine** qui n'ont pas d'attributs particuliers.
 
 
-On peut déjà voir l'importance des terrains et de la position de la base : plus celle-ci sera en mesure de se fournir en nourriture, plus elle se reproduira et augmentera encore sa capacité d'accès aux ressource, créant un cycle.
+On peut déjà voir l'importance des terrains et de la position de la base : plus celle-ci sera en mesure de se fournir en nourriture, plus elle se reproduira et augmentera encore sa capacité d'accès aux ressource, créant un cycle. Cependant, une tribu de grand nombre mais faible expérience (base dans la jungle par ex.) peut vite se faire détroner.
 
 >_Il est à noter qu'un système de « path-finding » est en cours de développement de manière à ce que l'individu prenne des décisions plus rationnelles lors d'un déplacement: contourner les étangs ou favoriser le déplacement vers la forêt par exemple._
 
