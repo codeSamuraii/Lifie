@@ -1,4 +1,5 @@
 # Lifie
+###### _Ce logiciel faisait partie d'un projet universitaire, il n'est plus développé aujourd'hui._
 Lifie est un simulateur graphique de comportement tribal écrit en Python.
 
 
