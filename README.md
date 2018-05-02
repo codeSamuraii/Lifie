@@ -6,12 +6,12 @@ Les individus agissent selon des règles définies mais évoluent dans un enviro
 
 ------
 
-#### Principes de la simulation
-##### Le terrain
+### Principes de la simulation
+#### Le terrain
 
 Comme dit précédemment, chaque carte sera générée aléatoirement en répondant à quelques paramètres de base tels que sa taille, sa diversité et sa densité. Le résultat est un monde de type insulaire sur lequel sont disposés plusieurs terrains ayant des effets différents pour les individus.
 
-<center>![Exemple de carte générée](antialiased.png)</center>
+![Exemple de carte générée](antialiased.png)
 
 Dans sa version actuelle, il en existe six dont quatre ont des caractéristiques spéciales :
 
@@ -25,7 +25,7 @@ On peut déjà voir l'importance des terrains et de la position de la base : plu
 
 >_Il est à noter qu'un système de « path-finding » est en cours de développement de manière à ce que l'individu prenne des décisions plus rationnelles lors d'un déplacement: contourner les étangs ou favoriser le déplacement vers la forêt par exemple._
 
-##### Les individus
+#### Les individus
 
 Dans la simulation, un individu est un agent ayant un comportement défini et des caractéristiques propres à chacun :
 
@@ -35,7 +35,7 @@ Dans la simulation, un individu est un agent ayant un comportement défini et de
 
 Le comportement d'une tribu est _- pour le moment, voir encadré ci-dessus -_ très simple. Les individus se déplacent aléatoirement sur la carte et récoltent des ressources lorsqu'ils sont dans un zone appropriée. À la vue d'un membre d'une autre tribu, ils vont se déplacer l'un vers l'autre et engager un combat. Le vainqueur récupère une partie de l'expérience de son adversaire et ce dernier meurt.
 
-##### Les tribus
+#### Les tribus
 
 Une tribu est un groupe d'individus, elle est entretenue par les actions de ceux-ci, particulièrement en ce qui concerne sa croissance. La nourriture récoltée par ses membres va augmenter son indice de **fertilité** (signalée par les coeurs), c'est-à-dire sa capacité de reproduction.
 
@@ -43,8 +43,8 @@ Le second paramètre important est la position de la **base**, lieu où naîtron
 
 ----
 
-#### Détails techniques
-##### La matrice
+### Détails techniques
+#### La matrice
 
 >_You take the blue pill, the story ends, you wake up in your bed and believe whatever you want to believe... You take the red pill, you stay in wonderland and I show you how deep the rabbit hole goes._
 
@@ -55,11 +55,11 @@ Pour combiner esthétisme et performance, deux matrices sont en fait générées
 - Une première faisant le double de la taille spécifiée par l'utilisateur puis redimensionnée de moitié de manière à obtenir une image sans aliasing (« crénelage ») de bonne qualité.
 - Une seconde, copie de la première mais avec une résolution dix fois plus basse (par défaut) sur laquelle se déroulera la simulation :
 
-<center>![Carte sur laquelle se déroule la simulation](simulation.png)</center>
+![Carte sur laquelle se déroule la simulation](simulation.png)
 
 Celle-ci n'est jamais affichée. Elle est totalement transparente à l'exception des individus. Le résultat final est la superposition des deux images.
 
-##### La POO
+#### La POO
 
 Cette seconde version de la simulation utilise la Programmation Orientée Objet. En effet, cela optimise énormément le code car chaque individu est en fait un objet ayant ses propres caractéristiques, de la même manière pour les tribus. La matrice n'est donc plus un tableau d'entiers, mais un tableau d'objets.
 
