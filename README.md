@@ -5,8 +5,6 @@ Lifie est un simulateur graphique de comportement tribal écrit en Python.
 
 Les individus agissent selon des règles définies mais évoluent dans un environnement aléatoire, à la fois dans ses caractéristiques que dans les événements qui peuvent y survenir. En effet, chaque expérience crée une nouvelle carte et y place les tribus aléatoirement, son issue sera donc déterminée (ou non) par les paramètres de base arbitraires.
 
-------
-
 ### Principes de la simulation
 #### Le terrain
 
