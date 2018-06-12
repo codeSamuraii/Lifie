@@ -1,5 +1,5 @@
 
-###### * Ce programme est un vieux projet universitaire. Il n'est plus en développement et contient beaucoup d'erreurs. *
+###### * Ce programme est un ancien projet universitaire. Il n'est plus en développement et contient des erreurs. *
 # Lifie
 Lifie est un simulateur graphique de comportement tribal écrit en Python.
 
